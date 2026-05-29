@@ -60,7 +60,7 @@ body {
    TÍTULOS
 ========================= */
 h1, h2, h3 {
-    color: #58a6ff;
+    color: #06090e;
     margin-bottom: 15px;
 }
 
@@ -73,28 +73,28 @@ h1 {
 ========================= */
 p {
     margin-bottom: 15px;
-    color: #c9d1d9;
+    color: #047cf5;
 }
 
 /* =========================
    LINKS
 ========================= */
 a {
-    color: #58a6ff;
+    color: #1d1e1f;
     text-decoration: none;
     transition: 0.3s;
 }
 
 a:hover {
-    color: #79c0ff;
-    text-shadow: 0 0 8px rgba(88, 166, 255, 0.6);
+    color: #f3ef0f;
+    text-shadow: 0 0 8px rgba(228, 30, 63, 0.6);
 }
 
 /* =========================
    BOTÕES
 ========================= */
 button {
-    background: linear-gradient(135deg, #238636, #2ea043);
+    background: linear-gradient(135deg, #eb09d8, #e2a79c);
     color: white;
 
     border: none;
@@ -109,7 +109,7 @@ button {
 
     transition: all 0.3s ease;
 
-    box-shadow: 0 4px 10px rgba(35, 134, 54, 0.4);
+    box-shadow: 0 4px 5px rgb(177, 2, 247);
 }
 
 button:hover {
@@ -130,19 +130,19 @@ textarea {
     margin-top: 10px;
     margin-bottom: 20px;
 
-    border: 1px solid #30363d;
+    border: 1px solid #fd80de;
     border-radius: 8px;
 
-    background-color: #0d1117;
-    color: white;
+    background-color: #fa3605f6;
+    color: #f83d3d;
 
     outline: none;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #58a6ff;
-    box-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+    border-color: #08f864;
+    box-shadow: 0 0 10px rgba(250, 34, 5, 0.4);
 }
 
 /* =========================
