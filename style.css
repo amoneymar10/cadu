@@ -113,3 +113,49 @@ footer{
     text-decoration:none;
     font-size:20px;
 }
+html{
+    scroll-behavior:smooth;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all .8s ease;
+}
+
+.reveal.ativo{
+    opacity:1;
+    transform:translateY(0);
+}
+
+#titulo::after{
+    content:"|";
+    animation:piscando .8s infinite;
+}
+
+@keyframes piscando{
+
+    0%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+.box{
+    transition:.4s;
+}
+
+.box:hover{
+    transform:scale(1.08);
+}
+
+.topo:hover{
+    transform:scale(1.15);
+}
