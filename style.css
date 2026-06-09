@@ -159,3 +159,65 @@ html{
 .topo:hover{
     transform:scale(1.15);
 }
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+        margin:10px auto;
+    }
+
+    nav{
+        display:none;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav.ativo{
+        display:flex;
+    }
+}
+.dashboard{
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.dash-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.dash-card:hover{
+    transform:translateY(-8px);
+}
+
+.dash-card span{
+    font-size:2rem;
+    color:#2e7d32;
+    font-weight:bold;
+}
+.mapa{
+    width:100%;
+    max-width:700px;
+    display:block;
+    margin:auto;
+}
