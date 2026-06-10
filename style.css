@@ -220,4 +220,45 @@ html{
     max-width:700px;
     display:block;
     margin:auto;
+.simulador {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.status {
+  background: #f3fdf3;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.escolha {
+  margin: 20px 0;
+}
+
+button {
+  padding: 12px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.resultado-btn {
+  background: green;
+  color: white;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 }
