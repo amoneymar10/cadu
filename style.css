@@ -66,7 +66,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: #ffffff !important; /* Força o texto geral da Hero a ser branco */
     padding: 20px;
 }
 
@@ -78,12 +78,13 @@ nav a:hover {
     font-size: 3rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #ffffff !important; /* Garante que o título não herde a cor escura do body */
 }
 
 .hero-conteudo p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #e0e0e0;
+    color: #e0e0e0 !important; /* Deixa o parágrafo em um tom cinza claro legível */
 }
 
 .btn-cta {
@@ -281,10 +282,17 @@ footer {
         display: none;
         flex-direction: column;
         gap: 10px;
+        background: #1b5e20; /* Correção UX: Dá um fundo escuro ao menu mobile */
+        padding: 15px;
+        border-radius: 8px;
     }
 
     nav.ativo {
         display: flex;
+    }
+
+    nav a:hover {
+        color: #c8e6c9; /* Agora o link claro destaca perfeitamente no fundo escuro */
     }
 
     .estatisticas {
