@@ -295,5 +295,21 @@ footer {
     
     .hero-conteudo p { 
         font-size: 1rem; 
+        /* Resolve o problema do header fixo cobrindo o título das seções */
+.card {
+    scroll-margin-top: 120px; 
+}
+
+/* Deixa o botão "Voltar ao topo" invisível por padrão (adicione a classe 'visivel' via JS) */
+.topo {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.topo.visivel {
+    opacity: 1;
+    pointer-events: auto;
+}
     }
 }

@@ -38,6 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (topoElemento < gatilhoJanela) {
                 elemento.classList.add("ativo");
+                window.addEventListener("scroll", () => {
+    const botaoTopo = document.querySelector(".topo");
+    if (window.scrollY > 400) {
+        botaoTopo.classList.add("visivel");
+    } else {
+        botaoTopo.classList.remove("visivel");
+    }
+});
             }
         });
     };
