@@ -83,4 +83,31 @@ document.addEventListener("DOMContentLoaded", () => {
         // Pequeno atraso para iniciar a digitação de forma elegante
         setTimeout(digitar, 500);
     }
+
+    // ==========================================================================
+    // 5. CONTROLE DO MODO ESCURO (DARK MODE)
+    // ==========================================================================
+    const darkToggle = document.getElementById("dark-mode-toggle");
+    
+    // Verifica se o usuário já tinha uma preferência salva anteriormente
+    const modoSalvo = localStorage.getItem("theme");
+
+    // Se houver preferência salva como 'dark', aplica a classe no body
+    if (modoSalvo === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    if (darkToggle) {
+        darkToggle.addEventListener("click", () => {
+            // Alterna a classe 'dark-mode' na tag <body>
+            document.body.classList.toggle("dark-mode");
+
+            // Condição para salvar a escolha atual no localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        });
+    }
 });
