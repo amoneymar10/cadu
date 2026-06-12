@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================================================
+    // ==========================================================================
     // 5. CONTROLE DO MODO ESCURO (DARK MODE)
     // ==========================================================================
     const darkToggle = document.getElementById("dark-mode-toggle");
@@ -103,5 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+}); // <-- Este fecha o document.addEventListener("DOMContentLoaded", () => { lá do início
 });
    
