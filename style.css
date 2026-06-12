@@ -1,124 +1,88 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:30px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f7f2;
-    color:#333;
-    line-height:1.6;
+/* ==========================================================================
+   1. Reset & Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-nav{
-    margin-top:15px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 10px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#c8e6c9;
-}
-
-.banner{
-    text-align:center;
-    padding:30px;
-}
-
-.banner img{
-    width:90%;
-    max-width:800px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-
-.intro{
-    text-align:center;
-    padding:30px;
-}
-
-.card{
-    background:white;
-    margin:25px auto;
-    max-width:1000px;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card h2{
-    color:#2e7d32;
-    margin-bottom:15px;
-}
-
-.card ul{
-    margin-top:15px;
-    padding-left:20px;
-}
-
-.estatisticas{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:30px;
-}
-
-.box{
-    background:#2e7d32;
-    color:white;
-    padding:25px;
-    border-radius:12px;
-    width:220px;
-    text-align:center;
-}
-
-footer{
-    background:#1b5e20;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
-}
-
-.topo{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#2e7d32;
-    color:white;
-    padding:12px 15px;
-    border-radius:50%;
-    text-decoration:none;
-    font-size:20px;
-}
-html{
-    scroll-behavior:smooth;
-    html {
+html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f2;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. Header & Navigation
+   ========================================================================== */
+header {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #c8e6c9;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. Layout Components (Banner, Intro, Cards)
+   ========================================================================== */
+.banner {
+    text-align: center;
+    padding: 30px;
+}
+
+.banner img {
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    height: auto;
+}
+
+.intro {
+    text-align: center;
+    padding: 30px;
+}
+
 .card {
+    background: white;
+    margin: 25px auto;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
     transition: 0.3s;
 }
 
@@ -126,112 +90,141 @@ html{
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
+
+.card h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
 }
 
-.reveal{
-    opacity:0;
-    transform:translateY(50px);
-    transition:all .8s ease;
+.card ul {
+    margin-top: 15px;
+    padding-left: 20px;
 }
 
-.reveal.ativo{
-    opacity:1;
-    transform:translateY(0);
+/* ==========================================================================
+   4. Statistics & Dashboard
+   ========================================================================== */
+.estatisticas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 30px;
 }
 
-#titulo::after{
-    content:"|";
-    animation:piscando .8s infinite;
+.box {
+    background: #2e7d32;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 220px;
+    text-align: center;
+    transition: .4s;
 }
 
-@keyframes piscando{
-
-    0%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:0;
-    }
-
-    100%{
-        opacity:1;
-    }
+.box:hover {
+    transform: scale(1.08);
 }
 
-.box{
-    transition:.4s;
+.dashboard {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
 }
 
-.box:hover{
-    transform:scale(1.08);
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-.topo:hover{
-    transform:scale(1.15);
-}
-.menu-toggle{
-    display:none;
-    background:none;
-    border:none;
-    color:white;
-    font-size:2rem;
-    cursor:pointer;
+.dash-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    transition: .3s;
 }
 
-@media(max-width:768px){
-
-    .menu-toggle{
-        display:block;
-        margin:10px auto;
-    }
-
-    nav{
-        display:none;
-        flex-direction:column;
-        gap:10px;
-    }
-
-    nav.ativo{
-        display:flex;
-    }
-}
-.dashboard{
-    max-width:1200px;
-    margin:auto;
-    padding:40px;
+.dash-card:hover {
+    transform: translateY(-8px);
 }
 
-.dashboard-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+.dash-card span {
+    font-size: 2rem;
+    color: #2e7d32;
+    font-weight: bold;
 }
 
-.dash-card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    transition:.3s;
+/* ==========================================================================
+   5. Footer & Utility Items
+   ========================================================================== */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-.dash-card:hover{
-    transform:translateY(-8px);
+.topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
-.dash-card span{
-    font-size:2rem;
-    color:#2e7d32;
-    font-weight:bold;
+.topo:hover {
+    transform: scale(1.15);
 }
+
+/* Scroll Revelations */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .8s ease;
+}
+
+.reveal.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typing Animation Effect */
+#titulo::after {
+    content: "|";
+    animation: piscando .8s infinite;
+}
+
+@keyframes piscando {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   6. Responsive Media Queries (Mobile Breakdown)
+   ========================================================================== */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        margin: 10px auto;
+    }
 
     nav {
-        display: flex;
+        display: none; /* Controlled via JS with class 'ativo' */
         flex-direction: column;
         gap: 10px;
+    }
+
+    nav.ativo {
+        display: flex;
     }
 
     .estatisticas {
@@ -244,8 +237,5 @@ html{
 
     .banner img {
         width: 100%;
-        height: auto;
     }
-}
-
 }
