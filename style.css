@@ -1,5 +1,4 @@
-
- /* ==========================================================================
+/* ==========================================================================
    1. Reset & Base Styles
    ========================================================================== */
 * {
@@ -41,6 +40,7 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -61,7 +61,7 @@ nav a:hover {
    ========================================================================== */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('cadu.png') no-repeat center center/cover;
-    height: 80vh; /* Ocupa 80% da altura da tela de forma elegante */
+    height: 80vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,7 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* Componentes Antigos de Layout (Mantidos caso use em outras partes) */
+/* Componentes Antigos de Layout (Mantidos por segurança) */
 .banner {
     text-align: center;
     padding: 30px;
@@ -133,6 +133,8 @@ nav a:hover {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,.1);
     transition: 0.3s;
+    /* MELHORIA: Evita que o menu fixo cubra os títulos ao clicar no menu */
+    scroll-margin-top: 120px; 
 }
 
 .card:hover {
@@ -227,14 +229,24 @@ footer {
     border-radius: 50%;
     text-decoration: none;
     font-size: 20px;
-    transition: 0.3s;
+    /* MELHORIA: O botão inicia invisível e ganha transição suave */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+}
+
+/* Classe ativada por JavaScript quando o usuário rolar a página */
+.topo.visivel {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .topo:hover {
     transform: scale(1.15);
 }
 
-/* Animações controladas via JavaScript */
+/* Animações e Efeitos */
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -246,7 +258,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Typing Animation Effect */
 #titulo::after {
     content: "|";
     animation: piscando .8s infinite;
@@ -267,7 +278,7 @@ footer {
     }
 
     nav {
-        display: none; /* Controlado via JS com a classe 'ativo' */
+        display: none;
         flex-direction: column;
         gap: 10px;
     }
@@ -288,28 +299,11 @@ footer {
         width: 100%;
     }
 
-    /* Ajustes específicos de textos da Hero para celular */
     .hero-conteudo h2 { 
         font-size: 2rem; 
     }
     
     .hero-conteudo p { 
         font-size: 1rem; 
-        /* Resolve o problema do header fixo cobrindo o título das seções */
-.card {
-    scroll-margin-top: 120px; 
-}
-
-/* Deixa o botão "Voltar ao topo" invisível por padrão (adicione a classe 'visivel' via JS) */
-.topo {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.topo.visivel {
-    opacity: 1;
-    pointer-events: auto;
-}
     }
 }

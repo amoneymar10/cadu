@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
     // ==========================================================================
     // 1. MENU RESPONSIVO (MOBILE)
     // ==========================================================================
@@ -38,14 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (topoElemento < gatilhoJanela) {
                 elemento.classList.add("ativo");
-                window.addEventListener("scroll", () => {
-    const botaoTopo = document.querySelector(".topo");
-    if (window.scrollY > 400) {
-        botaoTopo.classList.add("visivel");
-    } else {
-        botaoTopo.classList.remove("visivel");
-    }
-});
             }
         });
     };
@@ -55,8 +46,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Executa a função toda vez que o usuário usar o scroll
     window.addEventListener("scroll", checarScroll);
 
+
     // ==========================================================================
-    // 3. EFEITO DIGITAÇÃO NO TÍTULO principal
+    // 3. EXIBIÇÃO DO BOTÃO VOLTAR AO TOPO (Corrigido fora de loops)
+    // ==========================================================================
+    const botaoTopo = document.querySelector(".topo");
+    
+    if (botaoTopo) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                botaoTopo.classList.add("visivel");
+            } else {
+                botaoTopo.classList.remove("visivel");
+            }
+        });
+    }
+
+
+    // ==========================================================================
+    // 4. EFEITO DIGITAÇÃO NO TÍTULO PRINCIPAL
     // ==========================================================================
     const titulo = document.getElementById("titulo");
     if (titulo) {
