@@ -484,3 +484,49 @@ nav a:hover {
         justify-content: center;
     }
 }
+
+/* ==========================================================================
+   9. Ajustes para o Modo Escuro (Dark Mode) - GLOBAL
+   ========================================================================== */
+body.dark-mode {
+    background: #121610;
+    color: #e0e0e0;
+}
+
+/* Alteração dos Cards e Itens da Galeria */
+body.dark-mode .card,
+body.dark-mode .galeria-item,
+body.dark-mode .dash-card {
+    background: #1e251a;
+    color: #e0e0e0;
+    border-color: #2e3b27;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajuste nos Títulos para Melhor Contraste */
+body.dark-mode .card h2,
+body.dark-mode .galeria-legenda h3,
+body.dark-mode .dash-card span {
+    color: #81c784; /* Um verde mais claro e suave para leitura no escuro */
+}
+
+body.dark-mode .galeria-legenda p {
+    color: #b0b0b0;
+}
+
+/* Modificações nos elementos que usam o verde principal */
+body.dark-mode header {
+    background: #1b5e20; /* Escurece um pouco o header fixo */
+}
+
+body.dark-mode .box {
+    background: #2e7d32;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajuste do Menu Suspenso Mobile no Modo Escuro */
+@media (max-width: 768px) {
+    body.dark-mode nav {
+        background: #0f140e;
+    }
+}
