@@ -486,7 +486,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   9. Ajustes para o Modo Escuro (Dark Mode) - GLOBAL
+   9. Ajustes Otimizados para o Modo Escuro (Dark Mode)
    ========================================================================== */
 body.dark-mode {
     background: #121610;
@@ -520,8 +520,36 @@ body.dark-mode header {
 }
 
 body.dark-mode .box {
-    background: #2e7d32;
+    background: #2e3b27; /* Ajustado para um verde mais escuro para contrastar com o texto branco */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   BÔNUS: Correções Extras de Contraste para o Modo Escuro
+   ========================================================================== */
+
+/* Garante que os links comuns dentro dos cards fiquem visíveis */
+body.dark-mode .card a {
+    color: #81c784;
+}
+
+/* Ajusta as bolinhas/números de listas dentro de cards */
+body.dark-mode .card li {
+    color: #d0d0d0;
+}
+
+/* Suaviza o fundo do botão voltar ao topo para não contrastar demais */
+body.dark-mode .topo {
+    background: #1b5e20;
+}
+
+/* Garante que o menu mobile suspenso herde a cor correta */
+@media (max-width: 768px) {
+    body.dark-mode nav {
+        background: #0f140e;
+    }
+}
+
 }
 
 /* Ajuste do Menu Suspenso Mobile no Modo Escuro */
