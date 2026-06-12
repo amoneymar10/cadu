@@ -3,14 +3,6 @@
     padding:0;
     box-sizing:border-box;
 }
-
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f7f2;
-    color:#333;
-    line-height:1.6;
-}
-
 header{
     background:#2e7d32;
     color:white;
@@ -19,7 +11,14 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f7f2;
+    color:#333;
+    line-height:1.6;
 }
+
 
 nav{
     margin-top:15px;
@@ -115,6 +114,18 @@ footer{
 }
 html{
     scroll-behavior:smooth;
+    html {
+    scroll-behavior: smooth;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
 }
 
 .reveal{
@@ -215,50 +226,26 @@ html{
     color:#2e7d32;
     font-weight:bold;
 }
-.mapa{
-    width:100%;
-    max-width:700px;
-    display:block;
-    margin:auto;
-.simulador {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 20px;
+@media (max-width: 768px) {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .estatisticas {
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
 }
 
-.status {
-  background: #f3fdf3;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.escolha {
-  margin: 20px 0;
-}
-
-button {
-  padding: 12px 18px;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.resultado-btn {
-  background: green;
-  color: white;
-}
-
-#resultado {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
 }
