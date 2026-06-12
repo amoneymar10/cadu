@@ -238,4 +238,52 @@ footer {
     .banner img {
         width: 100%;
     }
+    .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('cadu.png') no-repeat center center/cover;
+    height: 80vh; /* Ocupa 80% da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-conteudo {
+    max-width: 800px;
+}
+
+.hero-conteudo h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-conteudo p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.btn-cta {
+    background: #2e7d32;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+
+.btn-cta:hover {
+    background: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .hero-conteudo h2 { font-size: 2rem; }
+    .hero-conteudo p { font-size: 1rem; }
+}
 }
