@@ -66,7 +66,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #ffffff !important; /* Força o texto geral da Hero a ser branco */
+    color: #ffffff !important;
     padding: 20px;
 }
 
@@ -78,13 +78,13 @@ nav a:hover {
     font-size: 3rem;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #ffffff !important; /* Garante que o título não herde a cor escura do body */
+    color: #ffffff !important;
 }
 
 .hero-conteudo p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #e0e0e0 !important; /* Deixa o parágrafo em um tom cinza claro legível */
+    color: #e0e0e0 !important;
 }
 
 .btn-cta {
@@ -104,7 +104,6 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* Componentes Antigos de Layout (Mantidos por segurança) */
 .banner {
     text-align: center;
     padding: 30px;
@@ -134,7 +133,6 @@ nav a:hover {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,.1);
     transition: 0.3s;
-    /* MELHORIA: Evita que o menu fixo cubra os títulos ao clicar no menu */
     scroll-margin-top: 120px; 
 }
 
@@ -210,14 +208,94 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   6. Footer & Utility Items
+   6. Footer Moderno & Utilitários
    ========================================================================== */
-footer {
+.footer-moderno {
     background: #1b5e20;
-    color: white;
+    color: #e0e0e0;
+    padding: 50px 20px 20px 20px;
+    margin-top: 50px;
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-coluna h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+.footer-coluna h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40px;
+    height: 2px;
+    background: #c8e6c9;
+}
+
+.footer-coluna p {
+    line-height: 1.6;
+}
+
+.footer-coluna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-coluna ul li {
+    margin-bottom: 10px;
+}
+
+.footer-coluna ul li a {
+    color: #c8e6c9;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-coluna ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.redes-sociais {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.redes-sociais a {
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.redes-sociais a:hover {
+    background: #2e7d32;
+    transform: translateY(-3px);
+}
+
+.footer-direitos {
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #a5d6a7;
 }
 
 .topo {
@@ -230,14 +308,12 @@ footer {
     border-radius: 50%;
     text-decoration: none;
     font-size: 20px;
-    /* MELHORIA: O botão inicia invisível e ganha transição suave */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 999;
 }
 
-/* Classe ativada por JavaScript quando o usuário rolar a página */
 .topo.visivel {
     opacity: 1;
     pointer-events: auto;
@@ -282,7 +358,7 @@ footer {
         display: none;
         flex-direction: column;
         gap: 10px;
-        background: #1b5e20; /* Correção UX: Dá um fundo escuro ao menu mobile */
+        background: #1b5e20;
         padding: 15px;
         border-radius: 8px;
     }
@@ -292,7 +368,7 @@ footer {
     }
 
     nav a:hover {
-        color: #c8e6c9; /* Agora o link claro destaca perfeitamente no fundo escuro */
+        color: #c8e6c9;
     }
 
     .estatisticas {
@@ -313,5 +389,21 @@ footer {
     
     .hero-conteudo p { 
         font-size: 1rem; 
+    }
+
+    /* REORGANIZAÇÃO DO RODAPÉ NO MOBILE */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-coluna h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .redes-sociais {
+        justify-content: center;
     }
 }
