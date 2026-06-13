@@ -102,6 +102,108 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 localStorage.setItem("theme", "light");
             }
+            // ==========================================
+// LÓGICA DO QUIZ
+// ==========================================
+const quizData = [
+    {
+        question: "Qual dessas não é uma linguagem de programação?",
+        options: ["Python", "HTML", "Java", "C++"],
+        correctAnswer: "HTML" // HTML é linguagem de marcação
+    },
+    {
+        question: "O que significa a sigla CSS?",
+        options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System", "Colorful Style Sheets"],
+        correctAnswer: "Cascading Style Sheets"
+    },
+    {
+        question: "Qual a principal função do JavaScript em um site?",
+        options: ["Estruturar os textos", "Estilizar as cores", "Adicionar interatividade", "Criar bancos de dados"],
+        correctAnswer: "Adicionar interatividade"
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questionText = document.getElementById("question-text");
+const optionsContainer = document.getElementById("options-container");
+const feedbackText = document.getElementById("feedback-text");
+const nextBtn = document.getElementById("next-btn");
+const quizContainer = document.getElementById("quiz-container");
+const resultContainer = document.getElementById("result-container");
+const scoreText = document.getElementById("score-text");
+const restartBtn = document.getElementById("restart-btn");
+
+function loadQuestion() {
+    // Reseta estado anterior
+    feedbackText.innerText = "";
+    nextBtn.style.display = "none";
+    optionsContainer.innerHTML = "";
+
+    const currentQuestion = quizData[currentQuestionIndex];
+    questionText.innerText = currentQuestion.question;
+
+    currentQuestion.options.forEach(option => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.classList.add("btn-option");
+        button.onclick = () => checkAnswer(button, option, currentQuestion.correctAnswer);
+        optionsContainer.appendChild(button);
+    });
+}
+
+function checkAnswer(selectedButton, selectedOption, correctOption) {
+    // Desabilita todos os botões após a escolha
+    const buttons = optionsContainer.querySelectorAll("button");
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (selectedOption === correctOption) {
+        selectedButton.classList.add("correct");
+        feedbackText.innerText = "🎉 Resposta Certa!";
+        feedbackText.style.color = "#2e7d32";
+        score++;
+    } else {
+        selectedButton.classList.add("wrong");
+        feedbackText.innerText = `❌ Errado! A certa era: ${correctOption}`;
+        feedbackText.style.color = "#d32f2f";
+        
+        // Destaca a correta
+        buttons.forEach(btn => {
+            if (btn.innerText === correctOption) {
+                btn.classList.add("correct");
+            }
+        });
+    }
+
+    nextBtn.style.display = "inline-block";
+}
+
+nextBtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+});
+
+function showResult() {
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+    scoreText.innerText = `Você acertou ${score} de ${quizData.length} perguntas!`;
+}
+
+restartBtn.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    quizContainer.style.display = "block";
+    resultContainer.style.display = "none";
+    loadQuestion();
+});
+
+// Inicia o Quiz
+loadQuestion();
         });
     }
 }); // <-- Este fecha o document.addEventListener("DOMContentLoaded", () => { lá do início
