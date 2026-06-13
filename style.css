@@ -147,7 +147,6 @@ nav a:hover, nav a:focus-visible {
    3. Hero Section (Destaque Principal)
    ========================================================================== */
 .hero {
-    /* Dica: Considere usar webp em vez de png para carregamento mais rápido */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('cadu.png') no-repeat center center/cover;
     height: 80vh; 
     display: flex;
@@ -177,7 +176,7 @@ nav a:hover, nav a:focus-visible {
 
 .btn-cta {
     background: var(--green-primary);
-    color: white; /* Mantém branco para garantir contraste sobre botões */
+    color: white;
     padding: 12px 30px;
     text-decoration: none;
     font-weight: bold;
@@ -188,7 +187,7 @@ nav a:hover, nav a:focus-visible {
 }
 
 body.dark-mode .btn-cta {
-    color: #121610; /* Texto escuro no botão claro do dark mode */
+    color: #121610;
 }
 
 .btn-cta:hover, .btn-cta:focus-visible {
@@ -276,7 +275,7 @@ body.dark-mode .btn-cta {
 }
 
 .box {
-    background: var(--card-border); /* Reaproveitando a cor de borda para o box */
+    background: var(--card-border);
     color: var(--text-main);
     padding: 25px;
     border-radius: 12px;
@@ -286,7 +285,6 @@ body.dark-mode .btn-cta {
     box-shadow: 0 4px 10px var(--shadow-md);
 }
 
-/* Ajuste específico para o Box caso prefira que ele seja sempre verde preenchido */
 body:not(.dark-mode) .box {
     background: var(--green-primary);
     color: white;
@@ -557,8 +555,10 @@ body:not(.dark-mode) .box {
     .redes-sociais {
         justify-content: center;
     }
-    /* ==========================================================================
-   Estilos do Quiz
+} /* <--- FECHAMENTO CORRETO DA MEDIA QUERY DE 768px */
+
+/* ==========================================================================
+   9. Estilos do Quiz
    ========================================================================== */
 .quiz-section {
     padding: 60px 20px;
@@ -609,9 +609,9 @@ body:not(.dark-mode) .box {
     min-height: 25px;
 }
 
+/* Responsividade do Quiz */
 @media (min-width: 600px) {
     .options-grid {
         grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
     }
-}
-}
+} /* <--- FECHAMENTO CORRETO DA MEDIA QUERY DE 600px */

@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ==========================================================================
-    // 1. MENU RESPONSIVO (MOBILE) com Atributos ARIA
-    // ==========================================================================
+
+    /* ==========================================================================
+       1. MENU RESPONSIVO (MOBILE) com Atributos ARIA
+       ========================================================================== */
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav");
 
     if (menuToggle && nav) {
         menuToggle.addEventListener("click", () => {
             const estaAtivo = nav.classList.toggle("ativo");
-            // Atualiza o estado de acessibilidade para leitores de tela
             menuToggle.setAttribute("aria-expanded", estaAtivo);
         });
 
@@ -21,33 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================================================
-    // 2. ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL)
-    // ==========================================================================
-    const elementosReveal = document.querySelectorAll(".reveal, .card, .box, .dash-card");
+    /* ==========================================================================
+       2. ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL)
+       ========================================================================== */
+    const elementosReveal = document.querySelectorAll(".reveal, .card, .box, .galeria-item");
 
-    const checarScroll = () => {
-        const gatilhoJanela = window.innerHeight * 0.85; // Dispara quando o elemento atinge 85% da tela
-
-        elementosReveal.forEach(elemento => {
-            if (!elemento.classList.contains("reveal")) {
-                elemento.classList.add("reveal");
-            }
-
-            const topoElemento = elemento.getBoundingClientRect().top;
-
-            if (topoElemento < gatilhoJanela) {
-                elemento.classList.add("ativo");
+    const revealOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("ativo");
             }
         });
-    };
+    }, { threshold: 0.15 });
 
-    checarScroll(); 
-    window.addEventListener("scroll", checarScroll);
+    elementosReveal.forEach(el => {
+        if (!el.classList.contains("reveal")) {
+            el.classList.add("reveal"); 
+        }
+        revealOnScroll.observe(el);
+    });
 
-    // ==========================================================================
-    // 3. EXIBIÇÃO DO BOTÃO VOLTAR AO TOPO
-    // ==========================================================================
+    /* ==========================================================================
+       3. EXIBIÇÃO DO BOTÃO VOLTAR AO TOPO
+       ========================================================================== */
     const botaoTopo = document.querySelector(".topo");
     
     if (botaoTopo) {
@@ -60,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================================================
-    // 4. EFEITO DIGITAÇÃO NO TÍTULO PRINCIPAL
-    // ==========================================================================
+    /* ==========================================================================
+       4. EFEITO DIGITAÇÃO NO TÍTULO PRINCIPAL
+       ========================================================================== */
     const titulo = document.getElementById("titulo");
     if (titulo) {
         const textoOriginal = "Agro Forte";
@@ -80,132 +76,153 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(digitar, 500);
     }
 
-    // ==========================================================================
-    // ==========================================================================
-    // 5. CONTROLE DO MODO ESCURO (DARK MODE)
-    // ==========================================================================
+    /* ==========================================================================
+       5. CONTROLE DO MODO ESCURO (DARK MODE)
+       ========================================================================== */
     const darkToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
     const modoSalvo = localStorage.getItem("theme");
 
-    // Verifica preferência anterior e injeta a classe se necessário
     if (modoSalvo === "dark") {
-        document.body.classList.add("dark-mode");
+        body.classList.add("dark-mode");
+        if (darkToggle) darkToggle.innerText = '☀️ Modo Claro';
     }
 
     if (darkToggle) {
         darkToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
+            body.classList.toggle("dark-mode");
 
-            // Define de forma limpa o valor no localStorage
-            if (document.body.classList.contains("dark-mode")) {
+            if (body.classList.contains("dark-mode")) {
+                darkToggle.innerText = '☀️ Modo Claro';
                 localStorage.setItem("theme", "dark");
             } else {
+                darkToggle.innerText = '🌓 Modo Escuro';
                 localStorage.setItem("theme", "light");
             }
-            // ==========================================
-// LÓGICA DO QUIZ
-// ==========================================
-const quizData = [
-    {
-        question: "Qual dessas não é uma linguagem de programação?",
-        options: ["Python", "HTML", "Java", "C++"],
-        correctAnswer: "HTML" // HTML é linguagem de marcação
-    },
-    {
-        question: "O que significa a sigla CSS?",
-        options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System", "Colorful Style Sheets"],
-        correctAnswer: "Cascading Style Sheets"
-    },
-    {
-        question: "Qual a principal função do JavaScript em um site?",
-        options: ["Estruturar os textos", "Estilizar as cores", "Adicionar interatividade", "Criar bancos de dados"],
-        correctAnswer: "Adicionar interatividade"
+        });
     }
-];
 
-let currentQuestionIndex = 0;
-let score = 0;
+    /* ==========================================================================
+       6. LÓGICA DO QUIZ INTERATIVO (Tema: Agro e Tecnologia)
+       ========================================================================== */
+    const quizData = [
+        {
+            question: "O que é Agricultura de Precisão?",
+            options: [
+                "Plantio manual e tradicional",
+                "Uso de dados e tecnologia para aplicar insumos na medida exata",
+                "Cultivo exclusivo de produtos sem sementes",
+                "Uso indiscriminado de defensivos agrícolas"
+            ],
+            correctAnswer: "Uso de dados e tecnologia para aplicar insumos na medida exata"
+        },
+        {
+            question: "Qual destas tecnologias é amplamente usada para monitoramento aéreo rápido de pragas nas lavouras?",
+            options: ["Sensores IoT de solo", "Tratores Autônomos", "Drones", "Sistemas de Irrigação"],
+            correctAnswer: "Drones"
+        },
+        {
+            question: "O que significa a sigla ESG, essencial para o agronegócio moderno?",
+            options: [
+                "Energia, Sustentabilidade e Ganhos",
+                "Ecologia, Solo e Genética",
+                "Environmental, Social, and Governance (Ambiental, Social e Governança)",
+                "Economic System of Growth"
+            ],
+            correctAnswer: "Environmental, Social, and Governance (Ambiental, Social e Governança)"
+        }
+    ];
 
-const questionText = document.getElementById("question-text");
-const optionsContainer = document.getElementById("options-container");
-const feedbackText = document.getElementById("feedback-text");
-const nextBtn = document.getElementById("next-btn");
-const quizContainer = document.getElementById("quiz-container");
-const resultContainer = document.getElementById("result-container");
-const scoreText = document.getElementById("score-text");
-const restartBtn = document.getElementById("restart-btn");
+    let currentQuestionIndex = 0;
+    let score = 0;
 
-function loadQuestion() {
-    // Reseta estado anterior
-    feedbackText.innerText = "";
-    nextBtn.style.display = "none";
-    optionsContainer.innerHTML = "";
+    const questionText = document.getElementById("question-text");
+    const optionsContainer = document.getElementById("options-container");
+    const feedbackText = document.getElementById("feedback-text");
+    const nextBtn = document.getElementById("next-btn");
+    const quizContainer = document.getElementById("quiz-container");
+    const resultContainer = document.getElementById("result-container");
+    const scoreText = document.getElementById("score-text");
+    const restartBtn = document.getElementById("restart-btn");
 
-    const currentQuestion = quizData[currentQuestionIndex];
-    questionText.innerText = currentQuestion.question;
+    // Previne erro caso o HTML do quiz não exista na página
+    if (questionText && optionsContainer) {
+        function loadQuestion() {
+            feedbackText.innerText = "";
+            nextBtn.style.display = "none";
+            optionsContainer.innerHTML = "";
 
-    currentQuestion.options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option;
-        button.classList.add("btn-option");
-        button.onclick = () => checkAnswer(button, option, currentQuestion.correctAnswer);
-        optionsContainer.appendChild(button);
-    });
-}
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionText.innerText = currentQuestion.question;
 
-function checkAnswer(selectedButton, selectedOption, correctOption) {
-    // Desabilita todos os botões após a escolha
-    const buttons = optionsContainer.querySelectorAll("button");
-    buttons.forEach(btn => btn.disabled = true);
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.innerText = option;
+                button.classList.add("btn-option");
+                button.onclick = () => checkAnswer(button, option, currentQuestion.correctAnswer);
+                optionsContainer.appendChild(button);
+            });
+        }
 
-    if (selectedOption === correctOption) {
-        selectedButton.classList.add("correct");
-        feedbackText.innerText = "🎉 Resposta Certa!";
-        feedbackText.style.color = "#2e7d32";
-        score++;
-    } else {
-        selectedButton.classList.add("wrong");
-        feedbackText.innerText = `❌ Errado! A certa era: ${correctOption}`;
-        feedbackText.style.color = "#d32f2f";
-        
-        // Destaca a correta
-        buttons.forEach(btn => {
-            if (btn.innerText === correctOption) {
-                btn.classList.add("correct");
+        function checkAnswer(selectedButton, selectedOption, correctOption) {
+            const buttons = optionsContainer.querySelectorAll("button");
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (selectedOption === correctOption) {
+                selectedButton.classList.add("correct");
+                feedbackText.innerText = "🎉 Resposta Certa!";
+                feedbackText.style.color = "#2e7d32";
+                score++;
+            } else {
+                selectedButton.classList.add("wrong");
+                feedbackText.innerText = `❌ Errado! A resposta certa era: ${correctOption}`;
+                feedbackText.style.color = "#d32f2f";
+                
+                buttons.forEach(btn => {
+                    if (btn.innerText === correctOption) {
+                        btn.classList.add("correct");
+                    }
+                });
+            }
+
+            nextBtn.style.display = "inline-block";
+        }
+
+        nextBtn.addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
             }
         });
-    }
 
-    nextBtn.style.display = "inline-block";
-}
+        function showResult() {
+            quizContainer.style.display = "none";
+            resultContainer.style.display = "block";
+            
+            let message = "";
+            if (score === quizData.length) {
+                message = "🏆 Excelente! Você é um especialista no Agro 4.0!";
+            } else if (score > 0) {
+                message = "👍 Muito bom! Você está no caminho certo.";
+            } else {
+                message = "📚 Continue explorando nosso site para aprender mais!";
+            }
 
-nextBtn.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-        loadQuestion();
-    } else {
-        showResult();
-    }
-});
+            scoreText.innerHTML = `Você acertou <strong>${score}</strong> de <strong>${quizData.length}</strong> perguntas!<br><br>${message}`;
+        }
 
-function showResult() {
-    quizContainer.style.display = "none";
-    resultContainer.style.display = "block";
-    scoreText.innerText = `Você acertou ${score} de ${quizData.length} perguntas!`;
-}
-
-restartBtn.addEventListener("click", () => {
-    currentQuestionIndex = 0;
-    score = 0;
-    quizContainer.style.display = "block";
-    resultContainer.style.display = "none";
-    loadQuestion();
-});
-
-// Inicia o Quiz
-loadQuestion();
+        restartBtn.addEventListener("click", () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            quizContainer.style.display = "block";
+            resultContainer.style.display = "none";
+            loadQuestion();
         });
+
+        // Inicia o Quiz
+        loadQuestion();
     }
-}); // <-- Este fecha o document.addEventListener("DOMContentLoaded", () => { lá do início
-});
-   
+
+}); // Fim do DOMContentLoaded
