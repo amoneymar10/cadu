@@ -102,12 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    
-            loadQuestion();
-        });
-
-        // Inicia o Quiz
-        loadQuestion();
-    }
-
-}); // Fim do DOMContentLoaded
+});
