@@ -111,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-<<<<<<< HEAD
     if (fontIncrease) {
         fontIncrease.addEventListener("click", () => {
             if (currentFontSize < 28) {
@@ -123,6 +122,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 }); // Fim do DOMContentLoaded
-=======
-});
->>>>>>> 0c9dec9df10ba67a8301044f062c6c455ccb9901
