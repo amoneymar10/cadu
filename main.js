@@ -19,6 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 menuToggle.setAttribute("aria-expanded", "false");
             });
         });
+
+        const headerControlButtons = document.querySelectorAll(".header-controls button");
+        headerControlButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                if (nav.classList.contains("ativo")) {
+                    nav.classList.remove("ativo");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                }
+            });
+        });
     }
 
     /* ==========================================================================
