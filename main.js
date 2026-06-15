@@ -83,6 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const modoSalvo = localStorage.getItem("theme");
 
+    const fontIncrease = document.getElementById("font-size-increase");
+    const root = document.documentElement;
+    const savedFontSize = Number(localStorage.getItem("fontSize")) || 16;
+    let currentFontSize = savedFontSize;
+
+    if (currentFontSize < 12) currentFontSize = 12;
+    if (currentFontSize > 28) currentFontSize = 28;
+    root.style.fontSize = `${currentFontSize}px`;
+
     if (modoSalvo === "dark") {
         body.classList.add("dark-mode");
         if (darkToggle) darkToggle.innerText = '☀️ Modo Claro';
@@ -102,12 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    
-            loadQuestion();
+    if (fontIncrease) {
+        fontIncrease.addEventListener("click", () => {
+            if (currentFontSize < 28) {
+                currentFontSize += 2;
+                root.style.fontSize = `${currentFontSize}px`;
+                localStorage.setItem("fontSize", currentFontSize);
+            }
         });
-
-        // Inicia o Quiz
-        loadQuestion();
     }
 
 }); // Fim do DOMContentLoaded
