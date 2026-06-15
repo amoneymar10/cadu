@@ -260,7 +260,7 @@ body.dark-mode .btn-cta {
 }
 
 .comparativo {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--card-bg);
 }
 
 .comparativo-grid {
