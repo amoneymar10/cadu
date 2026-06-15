@@ -29,21 +29,21 @@
 body.dark-mode {
     /* Tema Escuro */
     --bg-body: #121610;
-    --text-main: #e0e0e0;
-    --text-muted: #b0b0b0;
-    --bg-image-overlay: rgba(18, 22, 16, 0.86);
+    --text-main: #f1f4ec;
+    --text-muted: #c8d0c0;
+    --bg-image-overlay: rgba(10, 15, 10, 0.92);
     
     /* Ajustes de Cores da Marca para Contraste */
-    --green-primary: #81c784; 
-    --green-hover: #a5d6a7;
+    --green-primary: #8cd18a;
+    --green-hover: #aedba9;
     
     /* Superfícies e UI no Escuro */
     --header-bg: #1b5e20;
-    --card-bg: #1e251a;
-    --card-border: #2e3b27;
-    --shadow-sm: rgba(0, 0, 0, 0.2);
-    --shadow-md: rgba(0, 0, 0, 0.3);
-    --shadow-lg: rgba(0, 0, 0, 0.4);
+    --card-bg: #1e271d;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --shadow-sm: rgba(0, 0, 0, 0.25);
+    --shadow-md: rgba(0, 0, 0, 0.35);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
     
     /* Footer no Escuro */
     --footer-bg: #0f140e;
@@ -208,6 +208,14 @@ nav a:hover, nav a:focus-visible {
 
 body.dark-mode .btn-cta {
     color: #121610;
+}
+
+.btn-dark-toggle {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.btn-dark-toggle:hover, .btn-dark-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.32);
 }
 
 .btn-cta:hover, .btn-cta:focus-visible {
