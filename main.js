@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", () => {
                 nav.classList.remove("ativo");
                 menuToggle.setAttribute("aria-expanded", "false");
+                
             });
         });
     }
