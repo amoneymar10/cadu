@@ -14,7 +14,7 @@
 <header>
     <div class="container">
         <h1 id="titulo"> Agro Forte </h1>
-        <nav>
+        <nav id="main-nav" aria-label="Navegação principal">
             <a href="#sustentabilidade"> Sustentabilidade </a>
             <a href="#tecnologia-inovacao"> Tecnologia </a>
             <a href="#automacao"> Automação </a>
@@ -24,11 +24,13 @@
             <a href="#comparativo"> Comparativo </a>
             <a href="#clima"> Clima </a>
             <a href="#galeria"> Galeria </a>
-            <button id="font-size-decrease" class="btn-dark-toggle" aria-label="Diminuir tamanho da fonte"> A- Fonte </button>
-            <button id="font-size-increase" class="btn-dark-toggle" aria-label="Aumentar tamanho da fonte"> A+ Fonte </button>
-            <button id="dark-mode-toggle" class="btn-dark-toggle" aria-label="Alternar modo escuro"> 🌓 Modo Escuro </button>
         </nav>
-        <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+        <div class="header-controls">
+            <button id="font-size-decrease" class="btn-dark-toggle" aria-label="Diminuir tamanho da fonte">A- Fonte</button>
+            <button id="font-size-increase" class="btn-dark-toggle" aria-label="Aumentar tamanho da fonte">A+ Fonte</button>
+            <button id="dark-mode-toggle" class="btn-dark-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
 </header>
 
@@ -110,6 +112,16 @@
     <p>O agronegócio é um pilar estratégico para a economia e para o desenvolvimento regional. Projetos bem executados geram emprego, infraestrutura e renda estável para comunidades rurais.</p>
 </section>
 
+<section id="clima" class="card">
+    <h2>🌦️ Clima Inteligente e Gestão de Riscos</h2>
+    <p>Com dados climáticos precisos e modelos de previsão, qualquer operação agrícola pode reduzir riscos, economizar recursos e antecipar decisões de plantio e colheita.</p>
+    <ul>
+        <li><strong>Análise de previsões climáticas:</strong> planejamento de operações mais seguros com base em temperatura, chuva e umidade.</li>
+        <li><strong>Gestão de risco agronômico:</strong> estratégias adaptativas para minimizar perdas em eventos extremos.</li>
+        <li><strong>Uso sustentável de água:</strong> irrigação inteligente alinhada ao clima e ao estado real do solo.</li>
+    </ul>
+</section>
+
 <section id="projetos" class="card">
     <h2>📈 Projetos que Vão Dar Certo</h2>
     <p>Em Agro Forte, apoiamos iniciativas com alto potencial de retorno e impacto social. Veja alguns projetos que têm chances reais de sucesso:</p>
@@ -136,7 +148,7 @@
             </ul>
         </div>
         <div class="comparativo-card comparativo-depois">
-            <img src="images (3).jpeg" alt="Campo moderno depois da automação">
+            <img src="images (1).jpeg" alt="Campo moderno depois da automação">
             <h3>Depois</h3>
             <ul>
                 <li>Destino de insumos baseado em dados e mapas de solo.</li>
@@ -203,10 +215,11 @@
                 <li><a href="#sustentabilidade">Sustentabilidade</a></li>
                 <li><a href="#tecnologia-inovacao">Tecnologia</a></li>
                 <li><a href="#automacao">Automação</a></li>
+                <li><a href="#economia">Economia</a></li>
+                <li><a href="#clima">Clima</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#comparativo">Comparativo</a></li>
                 <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#economia">Economia</a></li>
                 <li><a href="#futuro">Futuro</a></li>
             </ul>
         </div>

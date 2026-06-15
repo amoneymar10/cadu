@@ -23,6 +23,7 @@
     /* Footer */
     --footer-bg: #1b5e20;
     --footer-text: #e0e0e0;
+    --bg-image-overlay: rgba(244, 247, 242, 0.9);
 }
 
 body.dark-mode {
@@ -30,6 +31,7 @@ body.dark-mode {
     --bg-body: #121610;
     --text-main: #e0e0e0;
     --text-muted: #b0b0b0;
+    --bg-image-overlay: rgba(18, 22, 16, 0.86);
     
     /* Ajustes de Cores da Marca para Contraste */
     --green-primary: #81c784; 
@@ -62,7 +64,7 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(rgba(244, 247, 242, 0.9), rgba(244, 247, 242, 0.9)), url('agro.png') no-repeat center center fixed;
+    background: linear-gradient(var(--bg-image-overlay), var(--bg-image-overlay)), url('agro.png') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-main);
     line-height: 1.6;
@@ -586,6 +588,14 @@ body:not(.dark-mode) .box {
         display: block;
     }
 
+    .header-controls {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
     nav {
         display: none;
         flex-direction: column;
@@ -607,6 +617,9 @@ body:not(.dark-mode) .box {
 
     nav a, .btn-dark-toggle {
         width: 100%;
+    }
+    .header-controls {
+        justify-content: space-between;
     }
 
     .btn-dark-toggle {
