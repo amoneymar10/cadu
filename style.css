@@ -259,6 +259,63 @@ body.dark-mode .btn-cta {
     text-decoration: underline;
 }
 
+.quiz-container {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+}
+
+.quiz-question {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+}
+
+.quiz-option {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid var(--green-primary);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    text-align: left;
+}
+
+.quiz-option:hover,
+.quiz-option:focus-visible {
+    background: var(--green-light);
+    outline: none;
+}
+
+.quiz-option.correct {
+    border-color: #4caf50;
+    background: #e8f5e9;
+}
+
+.quiz-option.incorrect {
+    border-color: #e53935;
+    background: #ffebee;
+}
+
+.quiz-results {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.hidden {
+    display: none !important;
+}
+
 /* ==========================================================================
    5. Estatísticas & Dashboard
    ========================================================================== */

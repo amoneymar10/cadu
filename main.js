@@ -132,4 +132,87 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const quizData = [
+        {
+            question: 'Qual tecnologia permite aplicar insumos apenas onde o solo realmente precisa?',
+            options: ['Plantio direto', 'Irrigação por gotejamento', 'Agricultura de precisão', 'Roçadas manuais'],
+            correctAnswer: 2
+        },
+        {
+            question: 'Qual prática ajuda a reduzir erosão e preservar a umidade do solo?',
+            options: ['Queima controlada', 'Plantio direto', 'Rotação de culturas', 'Uso intensivo de fertilizantes'],
+            correctAnswer: 1
+        },
+        {
+            question: 'Qual recurso é mais usado para monitoramento de lavouras em tempo real?',
+            options: ['Drones', 'Subsolagem', 'Pivôs centrais', 'Canteiros elevados'],
+            correctAnswer: 0
+        },
+        {
+            question: 'A integração lavoura-pecuária-floresta (ILPF) é importante porque:',
+            options: ['Aumenta a monocultura', 'Melhora a biodiversidade e o uso da terra', 'Substitui gestão de dados', 'Aumenta apenas a irrigação'],
+            correctAnswer: 1
+        }
+    ];
+
+    const quizQuestion = document.querySelector('.quiz-question');
+    const quizOptions = document.querySelector('.quiz-options');
+    const quizNext = document.getElementById('quiz-next');
+    const quizResults = document.querySelector('.quiz-results');
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let questionAnswered = false;
+
+    const loadQuizQuestion = () => {
+        const item = quizData[currentQuizIndex];
+        quizQuestion.innerText = item.question;
+        quizOptions.innerHTML = '';
+        quizResults.innerText = '';
+        quizNext.classList.add('hidden');
+        questionAnswered = false;
+
+        item.options.forEach((option, index) => {
+            const optionButton = document.createElement('button');
+            optionButton.type = 'button';
+            optionButton.className = 'quiz-option';
+            optionButton.innerText = option;
+            optionButton.dataset.index = index;
+            optionButton.addEventListener('click', () => {
+                if (questionAnswered) return;
+                questionAnswered = true;
+
+                if (index === item.correctAnswer) {
+                    optionButton.classList.add('correct');
+                    quizResults.innerText = 'Resposta correta!';
+                    quizScore += 1;
+                } else {
+                    optionButton.classList.add('incorrect');
+                    quizResults.innerText = `Resposta incorreta. A resposta correta é: "${item.options[item.correctAnswer]}".`;
+                    const correctButton = quizOptions.querySelector(`[data-index="${item.correctAnswer}"]`);
+                    if (correctButton) correctButton.classList.add('correct');
+                }
+
+                quizNext.classList.remove('hidden');
+            });
+            quizOptions.appendChild(optionButton);
+        });
+    };
+
+    if (quizQuestion && quizOptions && quizNext && quizResults) {
+        loadQuizQuestion();
+
+        quizNext.addEventListener('click', () => {
+            currentQuizIndex += 1;
+            if (currentQuizIndex < quizData.length) {
+                loadQuizQuestion();
+            } else {
+                quizQuestion.innerText = `Quiz finalizado! Sua pontuação foi ${quizScore} de ${quizData.length}.`;
+                quizOptions.innerHTML = '';
+                quizResults.innerText = 'Obrigado por participar!';
+                quizNext.classList.add('hidden');
+            }
+        });
+    }
+
 }); // Fim do DOMContentLoaded
