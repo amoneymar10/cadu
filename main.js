@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const modoSalvo = localStorage.getItem("theme");
 
+    const fontDecrease = document.getElementById("font-size-decrease");
     const fontIncrease = document.getElementById("font-size-increase");
     const root = document.documentElement;
     const savedFontSize = Number(localStorage.getItem("fontSize")) || 16;
@@ -115,6 +116,16 @@ document.addEventListener("DOMContentLoaded", () => {
         fontIncrease.addEventListener("click", () => {
             if (currentFontSize < 28) {
                 currentFontSize += 2;
+                root.style.fontSize = `${currentFontSize}px`;
+                localStorage.setItem("fontSize", currentFontSize);
+            }
+        });
+    }
+
+    if (fontDecrease) {
+        fontDecrease.addEventListener("click", () => {
+            if (currentFontSize > 12) {
+                currentFontSize -= 2;
                 root.style.fontSize = `${currentFontSize}px`;
                 localStorage.setItem("fontSize", currentFontSize);
             }
