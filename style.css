@@ -98,12 +98,29 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 nav {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+nav a,
+.btn-dark-toggle {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 nav a {
@@ -578,12 +595,17 @@ body:not(.dark-mode) .box {
         position: absolute;
         top: 60px;
         right: 0;
-        width: 200px;
+        width: calc(100vw - 40px);
+        max-width: 320px;
         box-shadow: 0 4px 10px var(--shadow-md);
     }
 
     nav.ativo {
         display: flex;
+    }
+
+    nav a, .btn-dark-toggle {
+        width: 100%;
     }
 
     .btn-dark-toggle {
