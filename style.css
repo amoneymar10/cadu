@@ -270,6 +270,18 @@ body.dark-mode .btn-cta {
     margin-top: 20px;
 }
 
+.comparativo-toggle {
+    margin-top: 16px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.comparativo-grid.mostrar-depois .comparativo-antes,
+.comparativo-grid.mostrar-antes .comparativo-depois {
+    display: none;
+}
+
 .comparativo-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);

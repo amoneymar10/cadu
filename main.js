@@ -132,4 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const comparativoToggle = document.getElementById('comparativo-toggle');
+    const comparativoGrid = document.getElementById('comparativo-grid');
+
+    if (comparativoToggle && comparativoGrid) {
+        comparativoToggle.addEventListener('click', () => {
+            const estaMostrandoDepois = comparativoGrid.classList.toggle('mostrar-depois');
+            comparativoToggle.innerText = estaMostrandoDepois ? 'Mostrar comparativo completo' : 'Mostrar apenas o depois';
+        });
+    }
+
 }); // Fim do DOMContentLoaded
