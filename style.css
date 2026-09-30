@@ -587,7 +587,10 @@ body:not(.dark-mode) .box {
 /* ==========================================================================
    8. Responsive Media Queries (Mobile Breakdown)
    ========================================================================== */
-@media (max-width: 768px) 
+/* ==========================================================================
+   8. Responsive Media Queries (Mobile Breakdown)
+   ========================================================================== */
+@media (max-width: 768px) {
     header .container {
         position: relative;
     }
@@ -626,6 +629,7 @@ body:not(.dark-mode) .box {
     nav a, .btn-dark-toggle {
         width: 100%;
     }
+
     .header-controls {
         justify-content: space-between;
     }
@@ -671,7 +675,7 @@ body:not(.dark-mode) .box {
     .redes-sociais {
         justify-content: center;
     }
-
+} /* ← FECHAMENTO da media query de 768px */
 
 
 /* Responsividade do Quiz */
@@ -679,4 +683,5 @@ body:not(.dark-mode) .box {
     .options-grid {
         grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
     }
+}
 } /* <--- FECHAMENTO CORRETO DA MEDIA QUERY DE 600px */
