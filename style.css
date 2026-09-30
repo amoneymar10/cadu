@@ -587,7 +587,7 @@ body:not(.dark-mode) .box {
 /* ==========================================================================
    8. Responsive Media Queries (Mobile Breakdown)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 768px) 
     header .container {
         position: relative;
     }
