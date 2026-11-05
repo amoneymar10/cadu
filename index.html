@@ -1,4 +1,4 @@
-DOCTYPE html>
+OCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@ DOCTYPE html>
     <div class="container">
         <h1 id="titulo">Palmeiras</h1>
         <nav id="main-nav" aria-label="Navegação principal">
+            <a href="#idolos">Ídolos</a>
             <a href="#historia">História</a>
             <a href="#titulos">Títulos</a>
             <a href="#automacao">Elenco</a>
@@ -23,11 +24,6 @@ DOCTYPE html>
             <a href="#comparativo">Comparativo</a>
             <a href="#galeria">Galeria</a>
         </nav>
-        <div class="header-controls">
-            <button id="font-size-decrease" class="btn-dark-toggle" aria-label="Diminuir tamanho da fonte">A- Fonte</button>
-            <button id="font-size-increase" class="btn-dark-toggle" aria-label="Aumentar tamanho da fonte">A+ Fonte</button>
-            <button id="dark-mode-toggle" class="btn-dark-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
-        </div>
         <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
 </header>
@@ -41,6 +37,42 @@ DOCTYPE html>
             <a href="#historia" class="btn-cta">Nossa história</a>
             <a href="#titulos" class="btn-cta btn-cta-secondary">Títulos</a>
         </div>
+    </div>
+</section>
+
+<section id="idolos" class="card idolos-section">
+    <div class="section-header small">
+        <h2>Ídolos do Verdão</h2>
+    </div>
+    <p class="idolos-intro">Ganhou títulos, apaixonou torcedores e entrou para a história do futebol brasileiro com brilho, raça e talento.</p>
+    <div class="idolos-grid">
+        <article class="idol-card">
+            <div class="idol-visual idol-marcos" aria-label="Marcos em ação"></div>
+            <div class="idol-info">
+                <span class="idol-tag">Goleiro</span>
+                <h3>Marcos</h3>
+                <p>O eterno capitão de peito aberto e mãos milagrosas que levantou títulos e conquistou a torcida.</p>
+            </div>
+        </article>
+        <article class="idol-card">
+            <div class="idol-visual idol-rivaldo" aria-label="Rivaldo em ação"></div>
+            <div class="idol-info">
+                <span class="idol-tag">Meia</span>
+                <h3>Rivaldo</h3>
+                <p>Craque decisivo, mágico e vencedor, deixando uma marca profunda no coração do Palmeiras.</p>
+            </div>
+        </article>
+        <article class="idol-card">
+            <div class="idol-visual idol-dudu" aria-label="Dudu em ação"></div>
+            <div class="idol-info">
+                <span class="idol-tag">Lateral</span>
+                <h3>Dudu</h3>
+                <p>Um símbolo de raça, entrega e liderança que marcou gerações alviverdes.</p>
+            </div>
+        </article>
+    </div>
+    <div class="idolos-action">
+        <a href="#historia" class="btn-cta">Ver história</a>
     </div>
 </section>
 
@@ -148,7 +180,7 @@ DOCTYPE html>
     <button id="comparativo-toggle" class="btn-cta" type="button">Mostrar só a parte forte</button>
     <div class="comparativo-grid" id="comparativo-grid">
         <div class="comparativo-card comparativo-antes">
-            <img src="images (3).jpeg" alt="Estádio e tradição do futebol brasileiro" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=900&q=80" alt="Estádio e tradição do futebol brasileiro" loading="lazy">
             <h3>Tradição</h3>
             <ul>
                 <li>História de conquistas e identidade.</li>
@@ -157,7 +189,7 @@ DOCTYPE html>
             </ul>
         </div>
         <div class="comparativo-card comparativo-depois">
-            <img src="images (1).jpeg" alt="Uniforme e torcida do Palmeiras" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80" alt="Uniforme e torcida do Palmeiras" loading="lazy">
             <h3>Força atual</h3>
             <ul>
                 <li>Elenco competitivo e ambicioso.</li>
@@ -175,7 +207,7 @@ DOCTYPE html>
 
     <div class="galeria-grid">
         <div class="galeria-item">
-            <img src="futuro.png" alt="Torcida do Palmeiras celebrando" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80" alt="Torcida do Palmeiras celebrando" loading="lazy">
             <div class="galeria-legenda">
                 <h3>Celebrar</h3>
                 <p>O Verde e Branco vibra em cada conquista e cada título.</p>
@@ -183,7 +215,7 @@ DOCTYPE html>
         </div>
 
         <div class="galeria-item">
-            <img src="images (4).jpeg" alt="Jogador do Palmeiras em campo" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?auto=format&fit=crop&w=900&q=80" alt="Jogador do Palmeiras em campo" loading="lazy">
             <div class="galeria-legenda">
                 <h3>Em campo</h3>
                 <p>Qualidade técnica, coração e vontade de ser campeão.</p>
@@ -191,12 +223,50 @@ DOCTYPE html>
         </div>
 
         <div class="galeria-item">
-            <img src="images (1).jpeg" alt="Tradição do Palmeiras" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80" alt="Tradição do Palmeiras" loading="lazy">
             <div class="galeria-legenda">
                 <h3>Legado</h3>
                 <p>Uma história que continua a escrever capítulos inesquecíveis.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="videos" class="card">
+    <div class="section-header small">
+        <h2>Vídeos do Palmeiras</h2>
+    </div>
+
+    <div class="video-grid">
+        <a href="https://www.youtube.com/watch?v=1zv0_6wut04" class="video-card" target="_blank" rel="noopener noreferrer">
+            <span class="video-tag">Highlights</span>
+            <h3>Melhores momentos do Palmeiras</h3>
+            <p>Confira jogadas, golaços e emoção do Verdão.</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=5T0kHj4M9N8" class="video-card" target="_blank" rel="noopener noreferrer">
+            <span class="video-tag">Títulos</span>
+            <h3>Conquistas históricas</h3>
+            <p>Reviva os momentos mais marcantes do Palmeiras.</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=Yk2E8D4d1U0" class="video-card" target="_blank" rel="noopener noreferrer">
+            <span class="video-tag">Torcida</span>
+            <h3>Paixão alviverde</h3>
+            <p>Uma energia que sai do gramado e invade o mundo.</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=CQ5gM5m8DGg" class="video-card" target="_blank" rel="noopener noreferrer">
+            <span class="video-tag">Clássico</span>
+            <h3>Maior rivalidade</h3>
+            <p>Momentos de pressão, emoção e tradição no clássico alviverde.</p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=3Xj8QwYQZmQ" class="video-card" target="_blank" rel="noopener noreferrer">
+            <span class="video-tag">Festa</span>
+            <h3>Celebrando o Verdão</h3>
+            <p>Os melhores momentos de alegria e comemoração da torcida.</p>
+        </a>
     </div>
 </section>
 
