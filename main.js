@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================================================================
+ /* ==========================================================================
        1. MENU RESPONSIVO (MOBILE) com Atributos ARIA
        ========================================================================== */
     const menuToggle = document.querySelector(".menu-toggle");
@@ -72,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
        ========================================================================== */
     const titulo = document.getElementById("titulo");
     if (titulo) {
-        const textoOriginal = "Agro Forte";
+        const textoOriginal = "Palmeiras";
         titulo.innerText = ""; 
         let index = 0;
 
